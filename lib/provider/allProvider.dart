@@ -1,46 +1,68 @@
 import 'package:flutter/cupertino.dart';
- 
+ double? numberOfcatogries1=0;
+  double? numberOfcatogries2=0;
+   double? numberOfcatogries3=0;
 class AllCounterProvider1 with ChangeNotifier {
-  int counter1 = 0;
-  int counter2=0;
-  int counter3=0;
+  double counter1 = 0;
+  double counter2=0;
+  double counter3=0;
   //plus and muns frist row
   void incrementcounter1() {
     counter1++;
+    numberOfcatogries1=counter1;
     // ignore: avoid_print
     print("Counter1 : $counter1");
+    print("numberOfcatogries1 : $numberOfcatogries1");
     notifyListeners();
   }
    void incrementcounter2() {
     counter1--;
     // ignore: avoid_print
+    numberOfcatogries1=counter1;
     print("Counter1 : $counter1");
+        print("numberOfcatogries1 : $numberOfcatogries1");
+
     notifyListeners();
   }
    //plus and muns second row
  void incrementcounter3() {
+  
     counter2++;
+    numberOfcatogries2=counter2;
     // ignore: avoid_print
     print("Counter2 : $counter2");
+        print("numberOfcatogries2 : $numberOfcatogries2");
+
     notifyListeners();
   }
    void incrementcounter4() {
     counter2--;
+      numberOfcatogries2=counter2;
     // ignore: avoid_print
     print("Counter2 : $counter2");
+        print("numberOfcatogries2 : $numberOfcatogries2");
+
     notifyListeners();
   }
    //plus and muns third row
 void incrementcounter5() {
+   
     counter3++;
+     numberOfcatogries3=counter3;
     // ignore: avoid_print
     print("Counter3 : $counter3");
+        print("numberOfcatogries3 : $numberOfcatogries3");
+
     notifyListeners();
   }
    void incrementcounter6() {
+      
     counter3--;
+    numberOfcatogries3=counter3;
     // ignore: avoid_print
     print("Counter3 : $counter3");
+        print("numberOfcatogries3 : $numberOfcatogries3");
+
     notifyListeners();
   }
 }

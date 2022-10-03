@@ -1,4 +1,4 @@
-import 'package:e_commerce/MyNavigationBar/mynavigationbar.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/mynavigationbar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +10,7 @@ class Anonymous extends StatefulWidget {
 }
 
 class _AnonymousState extends State<Anonymous> {
-   final formKey = GlobalKey<FormState>();
+
   // Function AnonymousAuth
   Future anonymousAuth() async {
     try {
@@ -37,12 +37,11 @@ class _AnonymousState extends State<Anonymous> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Form(
-        key: formKey,
-        child: Center(child: Padding(
+      body: Center(
+        child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: customButton("LogIn With Anonymous"),
-        )),
+        ),
       ),
     );
   }

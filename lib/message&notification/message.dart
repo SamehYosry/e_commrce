@@ -1,4 +1,4 @@
-import 'package:e_commerce/MyNavigationBar/home.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/home.dart';
 import 'package:e_commerce/widgets/todolist.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +32,8 @@ class _MessageState extends State<Message> {
                 },
                 icon: const Icon(Icons.close),
               ),
-              Container(
+             //text "Message"
+             Container(
                 alignment: Alignment.centerLeft,
                 child: const Padding(
                   padding:  EdgeInsets.only(left: 15),

@@ -1,7 +1,7 @@
 
-import 'package:e_commerce/pages/anonymous.dart';
-import 'package:e_commerce/pages/logIn.dart';
-import 'package:e_commerce/pages/signUp.dart';
+import 'package:e_commerce/pagesOfAuthntcaion/anonymous.dart';
+import 'package:e_commerce/pagesOfAuthntcaion/logIn.dart';
+import 'package:e_commerce/pagesOfAuthntcaion/signUp.dart';
 import 'package:flutter/material.dart';
 
 class TapbarLogIn extends StatefulWidget {

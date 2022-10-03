@@ -1,5 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:e_commerce/MyNavigationBar/mynavigationbar.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/mynavigationbar.dart';
 import 'package:e_commerce/provider/allProvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,8 @@ class _SignUpPagesState extends State<SignUpPages> {
   TextEditingController userNameController = TextEditingController();
 
   String email = '', password = '', confirmPassWord = '', userName = '';
-//Function signUp
+
+//Function signUp by firebase
   Future signUp() async {
     if (formKey.currentState!.validate()) {
       // ignore: avoid_print
@@ -66,6 +67,8 @@ class _SignUpPagesState extends State<SignUpPages> {
             //btnCancelOnPress: () {},
             btnOkOnPress: () {},
           ).show();
+        } else if (e.code == 'username-already-in-use') {
+          print('The account already exists for that username.');
         }
       } catch (e) {
         // ignore: avoid_print
@@ -86,6 +89,7 @@ class _SignUpPagesState extends State<SignUpPages> {
             margin: const EdgeInsets.all(15),
             child: Column(
               children: [
+                //text field Of email
                 customEmail(
                   title: "Email",
                   controller: loginController,
@@ -104,6 +108,7 @@ class _SignUpPagesState extends State<SignUpPages> {
                 const SizedBox(
                   height: 20,
                 ),
+               //text field Of Username
                 customUserName(
                   title: "USER NAME",
                   keyBoardType: TextInputType.name,
@@ -124,6 +129,7 @@ class _SignUpPagesState extends State<SignUpPages> {
                 const SizedBox(
                   height: 20,
                 ),
+               //text field Of Password
                 customPassWord(
                   onsave: (val) {
                     password = val;
@@ -141,6 +147,7 @@ class _SignUpPagesState extends State<SignUpPages> {
                 const SizedBox(
                   height: 20,
                 ),
+                //text field Of ConfirmPassword
                 customConfirmPassWord(
                   controller: confirmPasswordController,
                   onsave: (val) {
@@ -158,7 +165,9 @@ class _SignUpPagesState extends State<SignUpPages> {
                 const SizedBox(
                   height: 20,
                 ),
+                //Button Sign Up
                 customButtonSignUp("sign up"),
+               //Text
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: RichText(
@@ -172,7 +181,8 @@ class _SignUpPagesState extends State<SignUpPages> {
                             text: "Terms of Service",
                             style: TextStyle(color: Colors.red)),
                         TextSpan(
-                            text: " and ", style: TextStyle(color: Colors.black)),
+                            text: " and ",
+                            style: TextStyle(color: Colors.black)),
                         TextSpan(
                             text: "Privacy Policy",
                             style: TextStyle(color: Colors.red))
@@ -235,8 +245,9 @@ class _SignUpPagesState extends State<SignUpPages> {
             borderSide: const BorderSide(color: Colors.black, width: 2),
             borderRadius: BorderRadius.circular(25)),
         focusedBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.amber, width: 2),
-            borderRadius: BorderRadius.circular(25)),
+          borderSide: const BorderSide(color: Colors.amber, width: 2),
+          borderRadius: BorderRadius.circular(25),
+        ),
       ),
     );
   }
@@ -267,7 +278,7 @@ class _SignUpPagesState extends State<SignUpPages> {
               ),
               prefixIcon: const Icon(Icons.password),
               filled: true,
-             // hintText: "password",
+              // hintText: "password",
               labelText: "password",
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.black, width: 2),
@@ -299,9 +310,9 @@ class _SignUpPagesState extends State<SignUpPages> {
       child: Selector<ProviderOfSeePassword, bool>(
         builder: ((context, isSee, child) {
           return TextFormField(
-              controller: controller,
+            controller: controller,
             onSaved: (val) => onsave(val),
-      validator: (val) => validator(val),
+            validator: (val) => validator(val),
             decoration: InputDecoration(
               suffix: IconButton(
                 onPressed: () {
@@ -312,7 +323,7 @@ class _SignUpPagesState extends State<SignUpPages> {
               ),
               prefixIcon: const Icon(Icons.password),
               filled: true,
-             // hintText: "Confermpassword",
+              // hintText: "Confermpassword",
               labelText: "Confermpassword",
               enabledBorder: OutlineInputBorder(
                   borderSide: const BorderSide(color: Colors.black, width: 2),
@@ -348,13 +359,6 @@ class _SignUpPagesState extends State<SignUpPages> {
         ),
         onPressed: () {
           signUp();
-          // logIn();
-          //anonymousAuth();
-          // Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => const MyNavigationBar(),
-          //   ),
-          // );
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

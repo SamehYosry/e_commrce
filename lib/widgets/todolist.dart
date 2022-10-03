@@ -1,3 +1,4 @@
+//-------MyMessage--------
 List<Map<String, dynamic>> myToDoListMessages = [
   {
     'avatarRed': true,
@@ -49,7 +50,7 @@ List<Map<String, dynamic>> myToDoListMessages = [
     'time': '11:00 AM , Mon',
   },
 ];
-
+//-------MyNotification--------
 List<Map<String, dynamic>> myToDoListNotification = [
   {
     'isread1': 1,

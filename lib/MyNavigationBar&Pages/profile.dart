@@ -85,7 +85,7 @@ class _ProfileState extends State<Profile> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //TIME AND MESSAGE
+              //Message AND Notification
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -135,6 +135,7 @@ class _ProfileState extends State<Profile> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  //image
                   CircleAvatar(
                     radius: 50,
                     child: ClipOval(
@@ -147,11 +148,13 @@ class _ProfileState extends State<Profile> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                     // name
                       const Text(
                         "Sameh Yosry",
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold),
                       ),
+                      //email
                       const Padding(
                         padding: EdgeInsets.all(8.0),
                         child: Text(
@@ -159,6 +162,7 @@ class _ProfileState extends State<Profile> {
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
+                     //button to edit profile
                       OutlinedButton(
                         onPressed: () {
                           showDialog(
@@ -215,6 +219,7 @@ class _ProfileState extends State<Profile> {
               const SizedBox(
                 height: 25,
               ),
+              //container of details
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(

@@ -1,13 +1,19 @@
 import 'package:e_commerce/message&notification/message.dart';
 import 'package:e_commerce/message&notification/notification.dart';
-import 'package:e_commerce/pages/tapBar.dart';
+import 'package:e_commerce/pagesOfAuthntcaion/tapBar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 // ignore: implementation_imports
 
-class More extends StatelessWidget {
+class More extends StatefulWidget {
   const More({super.key});
 
+  @override
+  State<More> createState() => _MoreState();
+}
+
+class _MoreState extends State<More> {
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,10 +69,12 @@ class More extends StatelessWidget {
                   ]),
                 ],
               ),
+              //text "More"
               const Text(
                 "More",
                 style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
               ),
+              //space
               const SizedBox(
                 height: 25,
               ),
@@ -141,7 +149,6 @@ class More extends StatelessWidget {
                 height: 25,
               ),
               //Button Log Out
-
               TextButton(
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Colors.red),

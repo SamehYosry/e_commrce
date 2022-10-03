@@ -1,4 +1,4 @@
-import 'package:e_commerce/MyNavigationBar/home.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/home.dart';
 import 'package:flutter/material.dart';
 
 class AllCategories extends StatefulWidget {
@@ -18,6 +18,7 @@ class _AllCategoriesState extends State<AllCategories> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(padding: EdgeInsets.only(right: 35)),
+             // icons close
               Container(
                 alignment: Alignment.topRight,
                 child: IconButton(
@@ -32,48 +33,58 @@ class _AllCategoriesState extends State<AllCategories> {
                   icon: const Icon(Icons.close),
                 ),
               ),
+             //text "all categories"
               const Padding(
-                 padding:  EdgeInsets.only(left: 10),
-                 child: Text(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
                   "All Categories",
                   style: TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
+                ),
               ),
-               ),
+              //space
               const SizedBox(
                 height: 20,
               ),
+             
               Row(
                 children: [
                   Column(
                     children: [
-                      backColorGradient(
-                        circleAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKU5imAg01IisyWWJTt0fzRbnMzZje93JieNjfZF6xY8_paDwJwGQhaXhvNER1hfgd3yw&usqp=CAU",
+                      backGroundImage(
+                        circleAvatar:
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKU5imAg01IisyWWJTt0fzRbnMzZje93JieNjfZF6xY8_paDwJwGQhaXhvNER1hfgd3yw&usqp=CAU",
                         tiltle: "Apparel",
                       ),
-                      backColorGradient(
-                          circleAvatar: "https://www.hiamag.com/sites/default/files/article/06/09/2020/9682681-1557037188.jpg",
+                      backGroundImage(
+                          circleAvatar:
+                              "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzN26OsfxZACycnDfY4XYCbvfN4C9oH5A5PuXwDyyVS-M-xHBT6I_iKIyhgw-KgTc74qE&usqp=CAU",
                           tiltle: "Beauty"),
-                      backColorGradient(
-                        circleAvatar: "https://assets.adidas.com/images/w_600,f_auto,q_auto/ce8a6f3aa6294de988d7abce00c4e459_9366/Breaknet_Shoes_White_FX8707_01_standard.jpg",
+                      backGroundImage(
+                        circleAvatar:
+                            "https://assets.adidas.com/images/w_600,f_auto,q_auto/ce8a6f3aa6294de988d7abce00c4e459_9366/Breaknet_Shoes_White_FX8707_01_standard.jpg",
                         tiltle: "Shoes",
                       ),
-                      backColorGradient(
-                        circleAvatar: "https://www.industriall-union.org/sites/default/files/styles/large/public/uploads/images/Sector-Generic-Images/chiptest.jpg?itok=nlnWB_ys",
+                      backGroundImage(
+                        circleAvatar:
+                            "https://media-exp1.licdn.com/dms/image/C4E1BAQGpoD6OAi9CCA/company-background_10000/0/1550767306745?e=2147483647&v=beta&t=39eCNBskOTHD6p-WwGmiZHyx2Sav9htdtV9VA9FM8Zw",
                         tiltle: "Electronics",
                       ),
-                      backColorGradient(
-                        circleAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShpjpJN6mqHSeC1B2s6X0thQ-epR1Lx6gGEq5NX-6_PL_gjDW3dB7feZG-jmQH5XeYESM&usqp=CAU",
+                      backGroundImage(
+                        circleAvatar:
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShpjpJN6mqHSeC1B2s6X0thQ-epR1Lx6gGEq5NX-6_PL_gjDW3dB7feZG-jmQH5XeYESM&usqp=CAU",
                         tiltle: "furnture",
                       ),
-                      backColorGradient(
-                        circleAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt9fZqDmhhJnIG8RLkQRPpp7NzzricfpM1hbZVhtKmWdVgQLexBUK0GctywfrMc9XhGNw&usqp=CAU",
+                      backGroundImage(
+                        circleAvatar:
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTt9fZqDmhhJnIG8RLkQRPpp7NzzricfpM1hbZVhtKmWdVgQLexBUK0GctywfrMc9XhGNw&usqp=CAU",
                         tiltle: "Home",
                       ),
-                      backColorGradient(
-                        circleAvatar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzHKmP4gkOXLQM0ezJn0-joUA16wuKa4sYIfaBcOtL5OE1khd9nQg0vI0C5UYRhs_SRA&usqp=CAU",
+                      backGroundImage(
+                        circleAvatar:
+                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYzHKmP4gkOXLQM0ezJn0-joUA16wuKa4sYIfaBcOtL5OE1khd9nQg0vI0C5UYRhs_SRA&usqp=CAU",
                         tiltle: "stationary",
                       ),
                     ],
@@ -179,17 +190,17 @@ class _AllCategoriesState extends State<AllCategories> {
     );
   }
 
-  Widget backColorGradient(
+  Widget backGroundImage(
       {required String circleAvatar, required String tiltle}) {
     return Column(
       children: [
         Padding(
           padding: const EdgeInsets.only(left: 10),
-          child: CircleAvatar(backgroundColor: Colors.white,
-                    radius: 30,
-                    child: ClipOval(
-                        child: Image.network(
-                            circleAvatar))),
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: 30,
+            backgroundImage: NetworkImage(circleAvatar),
+          ),
         ),
         const SizedBox(
           height: 7,
@@ -228,7 +239,7 @@ class _AllCategoriesState extends State<AllCategories> {
             ),
           ],
         ),
-        //Divider(),
+       
       ],
     );
   }

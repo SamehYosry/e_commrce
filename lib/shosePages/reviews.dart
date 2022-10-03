@@ -10,6 +10,7 @@ class Reviews extends StatefulWidget {
 class _ReviewsState extends State<Reviews> {
   @override
   Widget build(BuildContext context) {
+    //Start Handel To Get First And Scond char
     String s = "Jane Doe";
     List words = s.split(" ");
     // ignore: avoid_print
@@ -34,103 +35,107 @@ class _ReviewsState extends State<Reviews> {
 
     // ignore: avoid_print
     print(getFirstTowCharFromString(s));
+    //End Handel To Get First And Scond char
     return Scaffold(
-      body: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
         children: [
-          CircleAvatar(
-            radius: 35,
-            backgroundColor: const Color.fromARGB(137, 147, 143, 143),
-            child: Text(
-              getFirstTowCharFromString(s),
-              style: const TextStyle(
-                  color: Colors.black54,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ),
-          ),
-          const SizedBox(width: 5,),
-          Column(
+          Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              //ROW OF STAR
-              Row(
-                children:const [
-                  Icon(
-                    Icons.star,
-                    color: Colors.red,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.red,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.red,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Colors.red,
-                  ),
-                  Icon(
-                    Icons.star,
-                    color: Color.fromARGB(255, 159, 152, 152),
-                  ),
-                  SizedBox(width: 50,),
-                Text("10 Oct,2018"),
-                  
-                ],
+              CircleAvatar(
+                radius: 35,
+                backgroundColor: const Color.fromARGB(137, 147, 143, 143),
+                child: Text(
+                  getFirstTowCharFromString(s),
+                  style: const TextStyle(
+                      color: Colors.black54,
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
-              
-              const Text(
-                "Jane Doe",
-                style: TextStyle(fontWeight: FontWeight.bold),
+              const SizedBox(
+                width: 5,
               ),
-              const Text(
-                  "Lorem ipsum dolor sit amet,\nconsectur adipiscing elit,sed"),
-              //ROW OF PICTURE
-              Row(
-                children: [
-                  SizedBox(
-                    width: 45,
-                    height: 45,
-                    child: Image.asset("assests/booksimage/shose1.jpg"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 45,
-                      height: 45,
-                      child:
-                          Image.asset("assests/booksimage/shoes2.webp"),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    //ROW OF STAR
+                    Row(
+                      children: [
+                        Icon(
+                          Icons.star,
+                          color: Colors.red,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.red,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.red,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Colors.red,
+                        ),
+                        Icon(
+                          Icons.star,
+                          color: Color.fromARGB(255, 159, 152, 152),
+                        ),
+                        Expanded(child: SizedBox()),
+                        Text("10 Oct,2018"),
+                      ],
                     ),
-                  ),
-                  SizedBox(
-                    width: 45,
-                    height: 45,
-                    child: Image.asset("assests/booksimage/shoes3.jpg"),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: 45,
-                      height: 45,
-                      child:
-                          Image.asset("assests/booksimage/shoes4.jpg"),
+
+                    const Text(
+                      "Jane Doe",
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                  ),
-                  SizedBox(
-                    width: 45,
-                    height: 45,
-                    child: Image.asset("assests/booksimage/shoes6.jpg"),
-                  ),
-                ],
-              )
+                    const Text(
+                        "Lorem ipsum dolor sit amet,\nconsectur adipiscing elit,sed"),
+                    //ROW OF PICTURE
+                    Row(
+                      children: [
+                        SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Image.asset("assests/booksimage/shose1.jpg"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 45,
+                            height: 45,
+                            child:
+                                Image.asset("assests/booksimage/shoes2.webp"),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Image.asset("assests/booksimage/shoes3.jpg"),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: SizedBox(
+                            width: 45,
+                            height: 45,
+                            child: Image.asset("assests/booksimage/shoes4.jpg"),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 45,
+                          height: 45,
+                          child: Image.asset("assests/booksimage/shoes6.jpg"),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
-          // const SizedBox(
-          //   width: 35,
-          // ),
         ],
       ),
     );

@@ -1,4 +1,4 @@
-import 'package:e_commerce/MyNavigationBar/home.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/home.dart';
 import 'package:e_commerce/widgets/todolist.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +23,7 @@ class _NotificationsState extends State<Notifications> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                //icons close
                 IconButton(
                   onPressed: () {
                     Navigator.of(context).pop(
@@ -33,6 +34,7 @@ class _NotificationsState extends State<Notifications> {
                   },
                   icon: const Icon(Icons.close),
                 ),
+               //text "Notification"
                 Container(
                   alignment: Alignment.centerLeft,
                   child: const Text(
@@ -70,7 +72,7 @@ class _NotificationsState extends State<Notifications> {
       ),
     );
   }
-
+//Handler items
   Widget toDoItem(
       {required bool conditionToMakeTextHint,
       required String textDetials1,
@@ -79,8 +81,8 @@ class _NotificationsState extends State<Notifications> {
       required String time,
       required int condtionOfCircleAvatar,
       required bool avatarRed}) {
-  
-    String getFirstTowCharFromString(String str) {
+  //Get First Two Char From Text
+    String getFirstTwoCharFromString(String str) {
       List words = str.split(" ");
       String outPut = "";
       if (str.isEmpty) {
@@ -97,20 +99,21 @@ class _NotificationsState extends State<Notifications> {
     }
 
     // ignore: avoid_print
-    print(getFirstTowCharFromString(textDetials1));
+    print(getFirstTwoCharFromString(textDetials1));
 
     return Container(
       margin: const EdgeInsets.all(8),
       padding: const EdgeInsets.all(8),
       child: Row(
         children: [
+          //(condtionOfCircleAvatar)to handel color of CircleAvatar
           if (condtionOfCircleAvatar == 1)
             CircleAvatar(
               backgroundColor: const Color.fromARGB(255, 92, 101, 202),
               foregroundColor: Colors.white,
               radius: 30,
               child: Text(
-                getFirstTowCharFromString(textDetials1),
+                getFirstTwoCharFromString(textDetials1),
                 style: const TextStyle(
                   fontSize: 20,
                 ),
@@ -122,7 +125,7 @@ class _NotificationsState extends State<Notifications> {
               foregroundColor: Colors.white,
               radius: 30,
               child: Text(
-                getFirstTowCharFromString(textDetials1),
+                getFirstTwoCharFromString(textDetials1),
                 style: const TextStyle(
                   fontSize: 20,
                 ),
@@ -134,7 +137,7 @@ class _NotificationsState extends State<Notifications> {
               foregroundColor: Colors.white,
               radius: 30,
               child: Text(
-                getFirstTowCharFromString(textDetials1),
+                getFirstTwoCharFromString(textDetials1),
                 style: const TextStyle(
                   fontSize: 20,
                 ),
@@ -146,7 +149,7 @@ class _NotificationsState extends State<Notifications> {
               foregroundColor: Colors.white,
               radius: 30,
               child: Text(
-                getFirstTowCharFromString(textDetials1),
+                getFirstTwoCharFromString(textDetials1),
                 style: const TextStyle(
                   fontSize: 20,
                 ),

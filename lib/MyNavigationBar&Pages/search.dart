@@ -22,7 +22,7 @@ class _SearchState extends State<Search> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            //ROW OF MESSAGE &NOTIFICATION
+            //ROW OF MESSAGE &NOTIFICATION ICONS
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -68,6 +68,7 @@ class _SearchState extends State<Search> {
                 ]),
               ],
             ),
+           //TEXT "seach"
             const Text(
               "Search",
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -94,7 +95,7 @@ class _SearchState extends State<Search> {
                 ),
               ),
             ),
-
+//Row of RECENTLY VIEWED&clear
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

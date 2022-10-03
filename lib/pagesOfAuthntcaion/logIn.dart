@@ -1,5 +1,5 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
-import 'package:e_commerce/MyNavigationBar/mynavigationbar.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/mynavigationbar.dart';
 import 'package:e_commerce/provider/allProvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -18,8 +18,11 @@ class _LogInPageState extends State<LogInPage> {
   TextEditingController loginController = TextEditingController();
   TextEditingController passWordController = TextEditingController();
   String email = '', password = '';
+  // Start handel See number of password or No
   bool isShow = true;
-  //Function LogIn
+  // End handel See number of password or No
+//*********************************** */
+  //Function LogIn By Firebase
   Future logIn() async {
     if (formKey.currentState!.validate()) {
       // ignore: avoid_print
@@ -69,7 +72,7 @@ class _LogInPageState extends State<LogInPage> {
     }
   }
 
-//Function Google
+//Function Google By Firebase
   Future<UserCredential> signInWithGoogle() async {
     // Trigger the authentication flow
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
@@ -97,6 +100,8 @@ class _LogInPageState extends State<LogInPage> {
           padding: const EdgeInsets.all(15.0),
           child: Column(
             children: [
+              //****************** */
+              //Text field of Email
               customEmail(
                 title: "Email",
                 controller: loginController,
@@ -112,9 +117,11 @@ class _LogInPageState extends State<LogInPage> {
                   email = val;
                 },
               ),
+              //Spase
               const SizedBox(
                 height: 20,
               ),
+              //Text field of Password
               customPassWord(
                 onsave: (val) {
                   password = val;
@@ -129,18 +136,21 @@ class _LogInPageState extends State<LogInPage> {
                   }
                 },
               ),
+              //Spase
               const SizedBox(
                 height: 20,
               ),
+              //Button of LogIn
               customButton("log in"),
+              //Text
               const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Don't have an account? Switch night to",
-                    style: TextStyle(color: Colors.black),
-                  ),
-                  
-                  ),
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Don't have an account? Switch night to",
+                  style: TextStyle(color: Colors.black),
+                ),
+              ),
+//text to login with googleH
               GestureDetector(
                 onTap: () {
                   print("Start sign In With Google");
@@ -157,7 +167,7 @@ class _LogInPageState extends State<LogInPage> {
                   "Log In With Google",
                   style: TextStyle(color: Colors.red),
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -251,6 +261,19 @@ class _LogInPageState extends State<LogInPage> {
         ),
         onPressed: () {
           logIn();
+          // String username = loginController.text;
+          // String password = passWordController.text;
+          // if (username != '' && password != '') {
+          //   print('Successfull');
+          //   logindata.setBool('login', false);
+          //   logindata.setString('username', username);
+          //   Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) => MyNavigationBar(),
+          //     ),
+          //   );
+          // }
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

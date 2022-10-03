@@ -1,7 +1,7 @@
 
-import 'package:e_commerce/MyNavigationBar/mynavigationbar.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/mynavigationbar.dart';
 import 'package:e_commerce/firebase_options.dart';
-import 'package:e_commerce/pages/tapBar.dart';
+import 'package:e_commerce/pagesOfAuthntcaion/tapBar.dart';
 import 'package:e_commerce/provider/allProvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';

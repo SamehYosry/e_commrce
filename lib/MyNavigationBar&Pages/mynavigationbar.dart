@@ -1,12 +1,14 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:e_commerce/MyNavigationBar/cart.dart';
-import 'package:e_commerce/MyNavigationBar/home.dart';
-import 'package:e_commerce/MyNavigationBar/more.dart';
-import 'package:e_commerce/MyNavigationBar/profile.dart';
-import 'package:e_commerce/MyNavigationBar/search.dart';
-import 'package:e_commerce/myFavorite/myfavoritecategories.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/cart.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/home.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/more.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/profile.dart';
+import 'package:e_commerce/MyNavigationBar&Pages/search.dart';
+import 'package:e_commerce/consts/consts.dart';
+import 'package:e_commerce/myShoping/myshopinggories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyNavigationBar extends StatefulWidget {
   const MyNavigationBar({super.key});
@@ -16,9 +18,31 @@ class MyNavigationBar extends StatefulWidget {
 }
 
 class _MyNavigationBarState extends State<MyNavigationBar> {
-  //---------------Start Theme Mode data---------------
+  //---------------Start Theme Mode data By SharedPreferences---------------
   bool isdarkTheme = false;
-  //---------------End Theme Mode data---------------
+  int backgroundColor = Colors.white.value;
+  Future saveTheme() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences.setInt(BackGroundColor, backgroundColor);
+  }
+
+  Future getTheme() async {
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    setState(() {
+      backgroundColor =
+          sharedPreferences.getInt(BackGroundColor) ?? Colors.white.value;
+    });
+  }
+  //---------------End Theme Mode data By SharedPreferences---------------
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    getTheme();
+    super.initState();
+  }
+
+  //---------------MyPages of ButtomNavigationBar---------------
   List<Widget> bottomNavBarPages = [
     const Home(),
     const Search(),
@@ -26,7 +50,7 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
     const Profile(),
     const More(),
   ];
-
+//-----------------Start selected page
   int selectedPage = 0;
 
   void onBottomNavBarChanged(value) {
@@ -35,12 +59,12 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
     });
   }
 
+//-----------------End selected page
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor:
-            (isdarkTheme == false) ? Colors.white : Colors.grey[850],
+        backgroundColor: Color(backgroundColor),
         floatingActionButton: SpeedDial(
           //Speed dial menu
           marginBottom: 10, //margin bottom
@@ -57,27 +81,25 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
           curve: Curves.bounceIn,
           overlayColor: Colors.black,
           overlayOpacity: .5,
-          // onOpen: () => print('OPENING DIAL'), // action when menu opens
-          // onClose: () => print('DIAL CLOSED'), //action when menu closes
-
           elevation: 8.0, //shadow elevation of button
           shape: const CircleBorder(), //shape of button
-
+//------------- Start My SpeedDialChild---------------
           children: [
+            //speed dial "My Shopping Categories"
             SpeedDialChild(
               //speed dial child
-              child: const Icon(Icons.favorite),
+              child: const Icon(Icons.shop),
               backgroundColor: Colors.red,
               foregroundColor: Colors.white,
-              label: 'My Categories Favorite',
+              label: 'My Shopping Categories',
               labelStyle: const TextStyle(fontSize: 18.0),
               onTap: () => Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (context) => const MyFavouriteCategories(),
                 ),
               ),
-              //   onLongPress: () => print('FIRST CHILD LONG PRESS'),
             ),
+            //speed dial "My Theme"
             SpeedDialChild(
               child: isdarkTheme
                   ? const Icon(Icons.light_mode)
@@ -88,24 +110,19 @@ class _MyNavigationBarState extends State<MyNavigationBar> {
               labelStyle: const TextStyle(fontSize: 18.0),
               onTap: () {
                 setState(() {
+                  backgroundColor = isdarkTheme
+                      ? Colors.white.value
+                      : Colors.grey.shade800.value;
                   isdarkTheme = !isdarkTheme;
+                  saveTheme();
+                  print(isdarkTheme);
                 });
               },
-              // onLongPress: () => print('SECOND CHILD LONG PRESS'),
             ),
-            SpeedDialChild(
-              child: const Icon(Icons.keyboard_voice),
-              foregroundColor: Colors.white,
-              backgroundColor: Colors.green,
-              label: 'Third Menu Child',
-              labelStyle: const TextStyle(fontSize: 18.0),
-          
-            ),
-
           ],
         ),
-
-      
+        //-------------End My SpeedDialChild---------------
+//------------My bottomNavigationBar Icons--------
         bottomNavigationBar: CurvedNavigationBar(
             backgroundColor: Colors.blueAccent,
             items: const <Widget>[

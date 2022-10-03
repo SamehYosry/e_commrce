@@ -24,7 +24,7 @@ class _HomeState extends State<Home> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            //MESSAGE AND NOTIFICATION
+            //MESSAGE AND NOTIFICATION ICON
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -80,19 +80,21 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 CircleAvatar(
-                    radius: 30,
-                    child: ClipOval(
-                        child: Image.network(
-                            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKU5imAg01IisyWWJTt0fzRbnMzZje93JieNjfZF6xY8_paDwJwGQhaXhvNER1hfgd3yw&usqp=CAU"))),
-               CircleAvatar(
-                    radius: 30,
-                    child: ClipOval(
-                        child: Image.network(
-                            "https://www.hiamag.com/sites/default/files/article/06/09/2020/9682681-1557037188.jpg"))), CircleAvatar(
-                    radius: 30,
-                    child: ClipOval(
-                        child: Image.network(
-                            "https://assets.adidas.com/images/w_600,f_auto,q_auto/ce8a6f3aa6294de988d7abce00c4e459_9366/Breaknet_Shoes_White_FX8707_01_standard.jpg"))), 
+                  radius: 30,
+                  backgroundImage: NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKU5imAg01IisyWWJTt0fzRbnMzZje93JieNjfZF6xY8_paDwJwGQhaXhvNER1hfgd3yw&usqp=CAU"),
+                ),
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzN26OsfxZACycnDfY4XYCbvfN4C9oH5A5PuXwDyyVS-M-xHBT6I_iKIyhgw-KgTc74qE&usqp=CAU"),
+                ),
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(
+                      "https://assets.adidas.com/images/w_600,f_auto,q_auto/ce8a6f3aa6294de988d7abce00c4e459_9366/Breaknet_Shoes_White_FX8707_01_standard.jpg"),
+                  child: ClipOval(),
+                ),
                 //ICON BUTTON OF SEE ALL
                 CircleAvatar(
                   backgroundColor: Colors.white,
@@ -127,6 +129,7 @@ class _HomeState extends State<Home> {
               "Latest",
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
             ),
+           //CONTAINER have text and picture
             Container(
               padding: const EdgeInsets.only(left: 15, top: 15),
               decoration: BoxDecoration(
@@ -207,6 +210,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
+           //row of categories
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
